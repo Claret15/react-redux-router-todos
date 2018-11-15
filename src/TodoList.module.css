@@ -1,0 +1,29 @@
+.container {
+  width: 90%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/*****************************HEADER STYLES*****************************/
+.heading {
+	text-align: center;
+	font-size: 64px;
+	font-weight: 300;
+	margin: 80px 0 25px;
+	color: #2c3e50;
+}
+.headingBold {
+	font-weight: 700;
+}
+.subHeading {
+	text-align: center;
+	color: #bdc3c7;
+	font-weight:300;
+}
+
+.list {
+	width: 90%;
+	margin: 0 auto;
+}

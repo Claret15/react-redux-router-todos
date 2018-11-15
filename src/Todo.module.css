@@ -1,0 +1,33 @@
+
+/*****************************LIST STYLES*****************************/
+
+.task {
+	width: 90%;
+	line-height: 30px;
+	font-size: 20px;
+	padding:  10px 20px;
+	color: #34495e;
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
+	text-align: left;
+}
+.task:hover {
+	background: rgba(0, 0, 0, .02);
+	cursor: pointer;
+}
+
+.task:hover span{
+	opacity: 1;
+}
+
+.delete {
+  float: right;
+  color: #c0392b;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  opacity: 0;
+}
+
+.delete:hover {
+  color: #e74c3c
+}
