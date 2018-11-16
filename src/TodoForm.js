@@ -24,7 +24,7 @@ class TodoForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     let task = this.state.task;
-    this.props.dispatch(addTodo(task));
+    this.props.addTodo(task);
     e.target.reset();
     this.setState({
       task: ""
@@ -54,4 +54,4 @@ function mapStateToProps(reduxState) {
   };
 }
 
-export default connect(mapStateToProps)(TodoForm);
+export default connect(mapStateToProps, { addTodo })(TodoForm);

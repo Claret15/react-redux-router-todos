@@ -7,11 +7,11 @@ import styles from "./TodoList.module.css";
 
 class TodoList extends Component {
   removeTodo(id) {
-    this.props.dispatch(deleteTodo(id));
+    this.props.deleteTodo(id);
   }
 
   toggleTodo(id) {
-    this.props.dispatch(updateTodo(id));
+    this.props.updateTodo(id);
   }
 
   render() {
@@ -40,4 +40,4 @@ function mapStateToProps(reduxState) {
   };
 }
 
-export default connect(mapStateToProps)(TodoList);
+export default connect(mapStateToProps, { updateTodo, deleteTodo })(TodoList);
