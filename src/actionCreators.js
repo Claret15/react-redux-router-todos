@@ -1,25 +1,25 @@
-export const ADD_TODO = 'ADD_TODO';
-export const REMOVE_TODO = 'REMOVE_TODO';
-export const UPDATE_TODO = 'UPDATE_TODO';
+export const ADD_TODO = "ADD_TODO";
+export const DELETE_TODO = "DELETE_TODO";
+export const UPDATE_TODO = "UPDATE_TODO";
 
-export function addTodo(task, completed){
+export function addTodo(task) {
   return {
-    type: ADD_TODO, 
-    task, 
-    completed
-  }
+    type: ADD_TODO,
+    completed: false,
+    task
+  };
 }
 
-export function removeTodo(id){
+export function deleteTodo(id) {
   return {
-    type: REMOVE_TODO, 
+    type: DELETE_TODO,
     id
-  }
+  };
 }
 
-export function updateTodo(id){
+export function updateTodo(id) {
   return {
-    type: UPDATE_TODO, 
+    type: UPDATE_TODO,
     id
-  }
+  };
 }

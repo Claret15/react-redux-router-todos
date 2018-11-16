@@ -1,40 +1,38 @@
-import {ADD_TODO, REMOVE_TODO, UPDATE_TODO} from './actionCreators'
+import { ADD_TODO, DELETE_TODO, UPDATE_TODO } from "./actionCreators";
 
 let initialState = {
   todos: [],
   id: 0
-}
+};
 
-function rootReducer(state=initialState, action){
-
+function rootReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_TODO:
-      
       let newState = { ...state };
       newState.id++;
       return {
         ...newState,
-        todos: [ ...newState.todos, {
-          id: newState.id, 
-          task: action.task, 
-          completed: action.completed
+        todos: [
+          ...newState.todos,
+          {
+            id: newState.id,
+            task: action.task,
+            completed: action.completed
           }
         ]
       };
-      
-    case REMOVE_TODO:
+
+    case DELETE_TODO:
       let todos = state.todos.filter(val => val.id !== +action.id);
-      return {...state, todos };
+      return { ...state, todos };
 
     case UPDATE_TODO:
-      let updateTodos = state.todos.map(val => 
-        (val.id === +action.id)
-        ? {...val, completed: !val.completed}
-        : val
+      let updateTodos = state.todos.map(val =>
+        val.id === +action.id ? { ...val, completed: !val.completed } : val
       );
-      return {...state, todos: updateTodos };
+      return { ...state, todos: updateTodos };
 
-    default: 
+    default:
       return state;
   }
 }
