@@ -24,9 +24,11 @@ class TodoForm extends Component {
   handleSubmit(e){
     e.preventDefault();
     let task = this.state.task;
+    let status = false;
     // this.props.dispatch(addTodo(task));  // This is using the action creator
     this.props.dispatch({        // This is sending an object as an action, not the creator.
       type: 'ADD_TODO',
+      completed: status,
       task 
     });
     e.target.reset();  // reset the form

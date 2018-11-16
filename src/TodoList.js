@@ -17,12 +17,17 @@ class TodoList extends Component {
   }
 
   removeTodo(id){
-    debugger
     this.props.dispatch({
       type:"REMOVE_TODO",
       id
     });
+  }
 
+  toggleTodo(id){
+    this.props.dispatch({
+      type:"UPDATE_TODO",
+      id
+    });
   }
 
   render () {
@@ -32,7 +37,13 @@ class TodoList extends Component {
     //   <Todo task={todo} key={index} />)
 
     let todos = this.props.todos.map((val, index) => (
-      <Todo removeTodo={this.removeTodo.bind(this, val.id)} task={val.task} key={index} />
+      <Todo 
+        task={val.task} 
+        {...val}
+        key={index} 
+        removeTodo={this.removeTodo.bind(this, val.id)}
+        onToggle={this.toggleTodo.bind(this, val.id)} 
+      />
       ));
 
     return (
