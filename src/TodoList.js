@@ -2,10 +2,20 @@ import React, { Component } from "react";
 import Todo from "./Todo";
 import { connect } from "react-redux";
 import TodoForm from "./TodoForm";
-import { updateTodo, deleteTodo } from "./actionCreators";
+import { updateTodo, deleteTodo, addTodo } from "./actionCreators";
 import styles from "./TodoList.module.css";
+import { Route } from "react-router-dom";
 
 class TodoList extends Component {
+  constructor(props) {
+    super(props);
+    this.handleAdd = this.handleAdd.bind(this);
+  }
+
+  handleAdd(val){
+    this.props.addTodo(val);
+  }
+
   removeTodo(id) {
     this.props.deleteTodo(id);
   }
@@ -27,8 +37,14 @@ class TodoList extends Component {
 
     return (
       <div>
-        <TodoForm />
-        <ul className={styles.list}>{todos}</ul>
+        <Route
+          path="/todos/new"
+          component={props => (
+            <TodoForm {...props} handleSubmit={this.handleAdd} />
+          )}
+        />
+        {/* <Route exact path="/todos" component={ ()=> <div><ul className={styles.list}>{todos}</ul></div> } /> */}
+        <Route exact path="/todos" component={ ()=> <div className={styles.list}>{todos}</div> } />
       </div>
     );
   }
@@ -40,4 +56,4 @@ function mapStateToProps(reduxState) {
   };
 }
 
-export default connect(mapStateToProps, { updateTodo, deleteTodo })(TodoList);
+export default connect(mapStateToProps, { updateTodo, deleteTodo, addTodo })(TodoList);

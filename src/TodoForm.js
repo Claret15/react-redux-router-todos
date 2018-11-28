@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { addTodo } from "./actionCreators";
 import styles from "./TodoForm.module.css";
 
 class TodoForm extends Component {
@@ -23,12 +21,12 @@ class TodoForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let task = this.state.task;
-    this.props.addTodo(task);
+    this.props.handleSubmit(this.state.task);
     e.target.reset();
     this.setState({
       task: ""
     });
+    this.props.history.push("/todos");
   }
 
   render() {
@@ -48,10 +46,4 @@ class TodoForm extends Component {
   }
 }
 
-function mapStateToProps(reduxState) {
-  return {
-    todos: reduxState.todos
-  };
-}
-
-export default connect(mapStateToProps, { addTodo })(TodoForm);
+export default TodoForm;
