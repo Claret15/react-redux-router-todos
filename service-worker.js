@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Claret15/react-redux-router-todos/precache-manifest.af11a72a8e109122d5329933b15df640.js"
+  "/react-redux-router-todos/precache-manifest.794c6378638c358fe06d5d7045de1c5c.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/Claret15/react-redux-router-todos/index.html", {
+workbox.routing.registerNavigationRoute("/react-redux-router-todos/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
