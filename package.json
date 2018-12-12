@@ -2,7 +2,7 @@
   "name": "react-redux-todos",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Claret15/react-redux-router-todos",
+  "homepage": "https://claret15.github.io/react-redux-router-todos/",
   "dependencies": {
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
